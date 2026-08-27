@@ -1,0 +1,34 @@
+@use 'sass:list';
+@use 'sass:math';
+
+$_rem-base: 16px !default;
+
+@function _strip-unit($num) {
+  @return math.div($num, $num * 0 + 1);
+}
+
+@function _convert-to-rem($value, $base-value: $_rem-base) {
+  $value: math.div(_strip-unit($value), _strip-unit($base-value)) * 1rem;
+  @if ($value == 0rem) {
+    $value: 0;
+  }
+  @return $value;
+}
+
+@function rem-calc($values, $base-value: $_rem-base) {
+  $max: list.length($values);
+
+  @if $max == 1 {
+    @return _convert-to-rem(nth($values, 1), $base-value);
+  }
+
+  $remValues: ();
+  @for $i from 1 through $max {
+    $remValues: list.append(
+      $remValues,
+      _convert-to-rem(list.nth($values, $i), $base-value)
+    );
+  }
+
+  @return $remValues;
+}

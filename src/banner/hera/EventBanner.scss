@@ -1,0 +1,204 @@
+/* 원본: packages/main/app-root/src/components/home/EventBanner.vue
+ * Vue scoped / :deep() 만 일반 후손 셀렉터로 바꿨다. */
+
+@use '@grepp/shared-stylesheets/functions';
+@use '@grepp/shared-stylesheets/variables';
+
+.eventBanner {
+  --banner-height--desktop: 400px;
+  --banner-image-width--desktop: calc(1480px / 2);
+  --banner-image-height--desktop: calc(800px / 2);
+
+  --banner-height--tablet: 430px;
+  --banner-image-height--tablet: calc(510px / 2);
+
+  position: relative;
+  width: 100%;
+  height: var(--banner-height--desktop);
+
+  @media (variables.$lg-down) {
+    height: var(--banner-height--tablet);
+  }
+
+  .bannerHtmlWrapper {
+    width: 100%;
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+
+    .gtm-banner-link {
+      height: 100%;
+
+      > div {
+        height: 100%;
+      }
+    }
+
+    .root-banner-wrap {
+      height: 100%;
+
+      .banner-item-wide {
+        position: relative;
+        display: flex;
+        align-items: center;
+        max-width: 1160px;
+        height: 100%;
+        padding: 0 20px;
+        margin: 0 auto;
+        overflow: hidden;
+
+        @media (variables.$lg-down) {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .left {
+          --indicator-height: 32px;
+          --margin-from-indicator: 24px;
+
+          z-index: 1;
+          order: 1;
+          width: 420px;
+          padding-bottom: calc(
+            var(--indicator-height) + var(--margin-from-indicator)
+          );
+          color: #ffffff;
+          word-break: keep-all;
+
+          @media (variables.$lg-down) {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            order: 2;
+            width: 100%;
+            height: calc(
+              var(--banner-height--tablet) - var(--banner-image-height--tablet)
+            );
+            padding-top: 0;
+            padding-bottom: 64px;
+            margin-top: -16px;
+          }
+
+          /* TODO: 배너 V1에 대한 셀렉터이므로 배포 완료되면 삭제한다 */
+          .label-text {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: -1px;
+
+            @media (variables.$lg-down) {
+              font-size: 14px;
+            }
+          }
+
+          .labels {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 8px;
+
+            .label-ad {
+              padding: 2px 6px;
+              font-size: 12px;
+              font-weight: 400;
+              line-height: 15px;
+              color: variables.$grey-950;
+              letter-spacing: -1px;
+              background-color: variables.$white;
+              border-radius: 2px;
+            }
+
+            .label-text {
+              font-size: 16px;
+              font-weight: 400;
+              line-height: 19px;
+              letter-spacing: -1px;
+
+              @media (variables.$lg-down) {
+                font-size: 14px;
+              }
+            }
+          }
+
+          /* TODO: .headline은 배너 V1에 대한 셀렉터이므로 배포 완료되면 해당 클래스를 삭제한다 */
+          .headline,
+          .title {
+            font-size: 26px;
+            font-weight: 700;
+            line-height: 1.5;
+            letter-spacing: -1px;
+            word-break: keep-all;
+
+            @media (variables.$lg-down) {
+              font-size: 22px;
+            }
+          }
+
+          /* TODO: .period 배너 V1에 대한 셀렉터이므로 배포 완료되면 해당 클래스를 삭제한다 */
+          .period,
+          .subtitle {
+            margin-top: 16px;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.5;
+            letter-spacing: -1px;
+            opacity: 0.8;
+
+            @media (variables.$lg-down) {
+              margin-top: 8px;
+              font-size: 14px;
+            }
+          }
+        }
+
+        .right {
+          position: absolute;
+          right: 0;
+          display: flex;
+          flex-shrink: 1;
+          align-items: center;
+          justify-content: center;
+          order: 2;
+
+          @media (variables.$lg-down) {
+            position: static;
+            order: 1;
+          }
+
+          img {
+            display: block;
+
+            max-width: var(--banner-image-width--desktop);
+            max-height: var(--banner-image-height--desktop);
+
+            @media (variables.$lg-down) {
+              width: auto;
+              max-width: unset;
+              height: var(--banner-image-height--tablet);
+              max-height: unset;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+
+    .divider {
+      width: 1px;
+      height: 12px;
+      margin: 0 7px;
+      border: 0 solid rgba(255, 255, 255, 0.2);
+      border-left-width: 1px;
+      transform: rotate(16deg);
+    }
+
+    .pageIndex {
+      width: 9px;
+      text-align: center;
+    }
+  }
+}

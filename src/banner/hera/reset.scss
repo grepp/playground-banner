@@ -1,0 +1,25 @@
+/* 원본: packages/main/app-root/src/assets/style/reset.scss
+ * 로컬 woff @font-face 대신 preview.html 에서 Google Fonts 를 로드한다. */
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}

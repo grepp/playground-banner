@@ -1,0 +1,58 @@
+@import 'tailwindcss';
+
+html,
+body,
+#root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    sans-serif;
+  background: #f4f4f5;
+  color: #18181b;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+@keyframes example-hint {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(0 119 255 / 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgb(0 119 255 / 0);
+  }
+}
+
+.example-hint {
+  border-color: #0077ff;
+  color: #006ae6;
+  animation: example-hint 1.6s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .example-hint {
+    animation: none;
+  }
+}
+
+.cm-editor {
+  height: 100%;
+}
+
+.cm-editor .cm-scroller {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}

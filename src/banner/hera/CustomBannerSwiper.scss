@@ -1,0 +1,41 @@
+/* 원본: packages/main/app-root/src/components/home/CustomBannerSwiper/CustomBannerSwiper.vue
+ * 레이아웃만 가져온다. 슬라이드 전환 애니메이션은 opacity: 0 에서 시작해
+ * 정적 미리보기에서 본문이 숨겨지므로 제외한다. */
+
+.custom-banner-swiper {
+  position: relative;
+  height: 100%;
+  touch-action: pan-y;
+
+  .swiper {
+    position: relative;
+    height: 100%;
+    cursor: pointer;
+
+    .swiper-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(0, auto));
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+
+      &.is-dragging {
+        pointer-events: none;
+      }
+
+      &.active {
+        z-index: 2;
+        opacity: 1;
+      }
+
+      &.prev {
+        z-index: 1;
+        opacity: 1;
+      }
+    }
+  }
+}
