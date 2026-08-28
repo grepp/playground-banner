@@ -2,7 +2,7 @@
 
 운영자가 어드민에 넣을 **배너 HTML**을 편집하고, 프로덕션 `EventBanner`와 같은 스타일로 바로 확인하는 도구입니다.
 
-배포: **https://datalater.github.io/grepp-main-banner/** (GitHub Pages)
+배포: GitHub Pages (`/playground-banner/` 경로)
 
 ## 로컬 개발
 
@@ -20,7 +20,7 @@ npm run build
 npm run preview
 ```
 
-`vite preview` 는 GitHub Pages와 같이 `/grepp-main-banner/` 경로로 열립니다.
+`vite preview` 는 GitHub Pages와 같이 `/playground-banner/` 경로로 열립니다.
 
 ## 기능
 
@@ -31,7 +31,7 @@ npm run preview
 
 ## GitHub Pages 배포
 
-1. GitHub에서 repo `datalater/grepp-main-banner` 생성
+1. GitHub에서 이 repository를 연다
 2. Settings → Pages → Source: **GitHub Actions**
 3. `main`에 push → `.github/workflows/deploy-pages.yml` 이 `dist` 배포
-4. URL: `https://datalater.github.io/grepp-main-banner/`
+4. URL: `https://<org>.github.io/playground-banner/`

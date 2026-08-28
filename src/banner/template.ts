@@ -149,7 +149,7 @@ function parseTextColor(value: string): BannerTextColor | null {
   return relativeLuminance(rgb) >= 0.5 ? 'white' : 'black';
 }
 
-/** 배경 대비가 높은 쪽. 배경을 바꿀 때 기본값으로 쓴다. */
+/** HTML에 글자색이 없을 때 배경 대비로 추정한다. */
 export function textColorForBackground(background: string): 'black' | 'white' {
   const rgb = parseCssColor(background);
   if (!rgb) return 'black';

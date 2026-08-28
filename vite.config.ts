@@ -21,9 +21,9 @@ function stripPreviewScripts(): Plugin {
   };
 }
 
-/** GitHub Pages project site: https://datalater.github.io/grepp-main-banner/ */
+/** GitHub Pages project site: https://<org>.github.io/playground-banner/ */
 export default defineConfig(({ command }) => ({
-  base: command === 'build' ? '/grepp-main-banner/' : '/',
+  base: command === 'build' ? '/playground-banner/' : '/',
   plugins: [react(), tailwindcss(), stripPreviewScripts()],
   css: {
     preprocessorOptions: {

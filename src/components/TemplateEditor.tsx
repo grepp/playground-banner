@@ -1,10 +1,6 @@
 import type { ReactNode } from 'react';
 import { SegmentedControl } from './SegmentedControl';
-import {
-  textColorForBackground,
-  type BannerTemplate,
-  type BannerTextColor,
-} from '../banner/template';
+import { type BannerTemplate, type BannerTextColor } from '../banner/template';
 
 type TemplateEditorProps = {
   value: BannerTemplate;
@@ -121,11 +117,7 @@ function FieldRow({
 export function TemplateEditor({ value, onChange }: TemplateEditorProps) {
   const patch = (partial: Partial<BannerTemplate>) =>
     onChange({ ...value, ...partial });
-  const patchBackground = (background: string) =>
-    patch({
-      background,
-      textColor: textColorForBackground(background),
-    });
+  const patchBackground = (background: string) => patch({ background });
 
   return (
     <form
@@ -153,7 +145,7 @@ export function TemplateEditor({ value, onChange }: TemplateEditorProps) {
         <FieldRow label="색">
           <SegmentedControl
             aria-label="텍스트 색"
-            value={value.textColor ?? textColorForBackground(value.background)}
+            value={value.textColor}
             onChange={(textColor: BannerTextColor) => patch({ textColor })}
             options={[
               { value: 'black', label: 'Black' },
